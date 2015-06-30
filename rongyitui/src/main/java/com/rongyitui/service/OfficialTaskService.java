@@ -11,7 +11,7 @@ import com.rongyitui.dao.IOfficialTaskkDao;
 import com.rongyitui.po.OfficialTask;
 
 @Service
-public class OfficialTaskService implements IOfficialTaskService {
+public class OfficialTaskService implements IOfficialTaskService { 
 	private Logger logger = Logger.getLogger(OfficialTaskService.class);
 
 	@Resource
@@ -22,6 +22,7 @@ public class OfficialTaskService implements IOfficialTaskService {
 		String hql = "from OfficialTask as task order by task.createDate desc";
 		logger.info("hql = " + hql);
 
+		System.out.println("a");
 		List<OfficialTask> list = this.officialTaskkDao.listByHQL(hql, 1, count);
 		return list;
 	}
