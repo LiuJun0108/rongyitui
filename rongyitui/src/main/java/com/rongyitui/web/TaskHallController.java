@@ -21,7 +21,7 @@ public class TaskHallController {
 	@ResponseBody
 	public Page<UserTask> pageUserTask(@RequestParam(defaultValue = "0") int type,
 			@RequestParam(defaultValue = "0") int reward, @RequestParam(defaultValue = "0") int cycle,
-			@RequestParam(defaultValue = "1") int pageNo, @RequestParam(defaultValue = "5") int pageSize) {
+			@RequestParam(defaultValue = "1") int pageNo, @RequestParam(defaultValue = "10") int pageSize) {
 
 		TaskHallQuery query = new TaskHallQuery(type, reward, cycle);
 		Page<UserTask> page = this.userTaskService.listUserTask(query, pageNo, pageSize);

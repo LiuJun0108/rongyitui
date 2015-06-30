@@ -17,10 +17,9 @@
 	});
 	
 	function pageUserTask() {
-		alert('aaaaa');
-		var type;
-		var reward;
-		var cycle;
+		var type = 0;
+		var reward = 0;
+		var cycle = 0;
 		$.each($('.taskhall_ul li'), function(index, li) {
 			var span = $(li).find('span[class=\'taskhall_ul_qb\']');
 			if(index == 0) {
@@ -32,15 +31,96 @@
 			}
 		});
 		
+		var pageNo = $('.fenye_span span[style]').text();
+		var pageSize = 10;
 		$.post('pageUserTask.do',{
 			type : type,
 			reward : reward,
-			cycle : cycle
+			cycle : cycle,
+			pageNo : pageNo,
+			pageSize : pageSize
 		},function(data) {
 			if(data) {
 				console.info(data);
+				showTask(data.list);
+				var pageCount = data.pageCount;
+				pagination(pageNo,pageCount);
 			}
 		},'json');
+	}
+	
+	function showTask(data) {
+		$('.body_l_d2_t').remove();
+		$.each(data, function(index, task) {
+			var taskimg = 'images/tou_img2.jpg';
+			if(task.taskimg != null) {
+				taskimg = task.taskimg;
+			}
+			var html = '<tr class="body_l_d2_t">'+
+							'<td style="text-align: left;">'+
+								'<dd class="body_l_d2_t_dd">'+
+									'<img src="'+taskimg+'">'+
+								'</dd>'+
+								'<dd class="body_l_d2_t_dd1">'+
+									'<a title="'+task.title+'"</a>'+
+								'</dd>'+
+							'</td>'+
+							'<td style="color: #FF5A00">￥200</td>'+
+							'<td>20</td>'+
+							'<td style="color: #FF5A00">￥100</td>'+
+							'<td style="">2014-12-12</td>'+
+							'<td style="color: #008001">进行中</td>'+
+						'</tr>';
+			$('.body_l_d2').after(html);
+		});
+	}
+	
+	function pagination(pageNo, pageCount) {
+		var pageNum = 5;
+		if(pageCount < pageNum) {
+			pageNum = pageCount;
+		}
+		
+		var pageHtml = '<span title="上一页">上一页</span>'; 
+		for(var i=0; i<pageNum; i++) {
+			if(i+1 == pageNo) {
+				pageHtml += '<span style="background-color: #03a9f4; color: #fff;">'+(i+1)+'</span>';
+			} else {
+				pageHtml += '<span>'+(i+1)+'</span>';
+			}
+		}
+		if(pageCount > 8) {
+			pageHtml += '<span>'+(pageCount-1)+'</span>';
+			pageHtml += '<span>'+(pageCount)+'</span>';
+		}
+		pageHtml += '<span title="下一页">下一页</span>';				
+		
+		$('.fenye_span dd').empty();
+		$('.fenye_span dd').append(pageHtml);
+		
+		$('.fenye_span span').click(function() {
+			p(this);
+		})
+	}
+	
+	function p(obj) {
+		var currentPage = $('.fenye_span span[style]');
+		if('上一页' == $(obj).attr("title")) {
+			if(obj != currentPage.prev()[0]) {
+				currentPage.removeAttr('style');
+				currentPage.prev().attr('style','background-color: #03a9f4; color: #fff;');
+			}
+		} else if('下一页' == $(obj).attr("title")) {
+			if(obj != currentPage.next()[0]) {
+				currentPage.removeAttr('style');
+				currentPage.next().attr('style','background-color: #03a9f4; color: #fff;');
+			}
+		} else {
+			currentPage.removeAttr('style');
+			$(obj).attr('style','background-color: #03a9f4; color: #fff;');
+		}
+		
+		pageUserTask();
 	}
 </script>
 <style>

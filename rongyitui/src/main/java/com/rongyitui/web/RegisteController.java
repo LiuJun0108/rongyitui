@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.rongyitui.exception.SystemException;
 import com.rongyitui.model.JsonMsg;
 import com.rongyitui.po.WebUser;
-import com.rongyitui.service.webuser.IWebUserService;
+import com.rongyitui.service.IWebUserService;
 
 @Controller
 public class RegisteController {

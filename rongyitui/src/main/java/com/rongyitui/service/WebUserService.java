@@ -1,4 +1,4 @@
-package com.rongyitui.service.webuser;
+package com.rongyitui.service;
 
 import java.util.List;
 

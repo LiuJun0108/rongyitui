@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.rongyitui.model.JsonMsg;
 import com.rongyitui.po.WebUser;
-import com.rongyitui.service.webuser.IWebUserService;
+import com.rongyitui.service.IWebUserService;
 import com.rongyitui.util.Validator;
 
 @Controller
