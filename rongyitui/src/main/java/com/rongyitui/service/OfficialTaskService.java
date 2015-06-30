@@ -18,7 +18,7 @@ public class OfficialTaskService implements IOfficialTaskService {
 	private IOfficialTaskkDao officialTaskkDao;
 
 	@Override
-	public List<OfficialTask> hotTop(int count) {
+	public List<OfficialTask> hotTop(int count) { 
 		String hql = "from OfficialTask as task order by task.createDate desc";
 		logger.info("hql = " + hql);
 
