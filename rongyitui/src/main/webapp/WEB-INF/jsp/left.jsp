@@ -68,11 +68,10 @@ body {
 				会员账户
 			</div>
 			<ul>
-				<li><a href="account.html" target="bodyFrame"
-					style="color: #fd6e0e">账户信息</a></li>
-				<li><a href="basic.html" target="bodyFrame">基本资料</a></li>
-				<li><a href="news.html" target="bodyFrame">我的消息</a></li>
-				<li><a href="upg_vip.html" target="bodyFrame">升级为VIP</a></li>
+				<li><a href="center" target="_top" style="color: #fd6e0e">基本资料</a></li>
+				<li><a href="news.html" target="_top">我的消息</a></li>
+				<li><a href="upg_vip" target="_top">升级为VIP</a></li>
+				<li><a href="account.html" target="_top">账户信息</a></li>
 			</ul>
 		</div>
 		<div class="cen_body_left_ul">

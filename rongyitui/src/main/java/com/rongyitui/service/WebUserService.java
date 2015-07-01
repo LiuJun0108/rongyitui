@@ -21,7 +21,7 @@ public class WebUserService implements IWebUserService {
 		if (login == null)
 			return null;
 
-		String hql = "from WebUser as user where user.us_login = ?";
+		String hql = "from WebUser as user where user.login = ?";
 		log.info("hql = " + hql);
 
 		List<WebUser> list = this.webUserDao.listByHQL(hql,

@@ -32,19 +32,23 @@ public class WebUser implements Serializable {
 	private String headimg;// 头像
 	private String iphone;// 手机
 	private String email;// 邮箱
-	private BigDecimal money;// 账户可用余额
-	private String frozenmoney;// 任务冻结金额
 	private String regip;// 注册IP
 	private String regtime;// 注册时间
 	private Date logintime;// 上次登录时间
 	private String loginip;// 上次登录IP
+
 	private int tid;// 推荐ID
-	private String alipaynumber;// 支付宝账号
-	private String alipayname;// 支付宝姓名
+
 	private int isvip;// 是否是VIP--0:不是;1:是
 	private Date vip_starttime;// VIP生效时间
 	private Date vip_endtime;// VIP结束时间
+
+	private String alipaynumber;// 支付宝账号
+	private String alipayname;// 支付宝姓名
 	private String state;// 0.正常 1.冻结
+
+	private BigDecimal money;// 账户可用余额
+	private String frozenmoney;// 任务冻结金额
 	private BigDecimal allexpmoney;// 总支出金额
 	private BigDecimal allincmoney;// 总收入金额
 	private BigDecimal allwitmoney;// 总提现金额

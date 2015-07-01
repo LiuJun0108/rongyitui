@@ -46,23 +46,23 @@
 		//console.info(error_li);
 		$(error_li).text('');
 		
-		var us_login = $("#box3_n input[name='us_login']").val();
-		var us_password = $("#box3_n input[name='us_password']").val();
+		var login = $("#box3_n input[name='login']").val();
+		var password = $("#box3_n input[name='password']").val();
 		
-		if(us_login.length == 0) {
+		if(login.length == 0) {
 			//alert('登录名不能为空');
 			$(error_li[0]).text('登录名不能为空');
 			return;
 		}
-		if(us_password.length == 0) {
+		if(password.length == 0) {
 			//alert('密码不能为空');
 			$(error_li[1]).text('密码不能为空');
 			return;
 		}
 		
 		$.post('login.do',{
-			us_login : us_login,
-			us_password : us_password
+			login : login,
+			password : password
 		},function(data) {
 			if(data) {
 				if(data.success) {
@@ -500,13 +500,13 @@ a:hover {
 		</p>
 		<p class="box2_n_ipt">
 			<li style="width: 100px; float: left; text-align: right; line-height: 30px; margin-left: 40px;">邮箱:</li>
-			<li><input type="text" class="box_2_ipu" name="us_login"/></li> <br />
+			<li><input type="text" class="box_2_ipu" name="login"/></li> <br />
 			<li class="box_inpt_c"></li>
 		</p>
 		<p class="box2_n_ipt">
 			<li
 				style="width: 100px; float: left; text-align: right; line-height: 30px; margin-left: 40px;">密码:</li>
-			<li><input type="password" class="box_2_ipu" name="us_password"/></li> <br />
+			<li><input type="password" class="box_2_ipu" name="password"/></li> <br />
 			<li class="box_inpt_c"></li>
 		</p>
 		<p

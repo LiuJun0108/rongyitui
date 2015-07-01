@@ -55,11 +55,11 @@ body {
 					<li>可用余额 <a href="" class="top_tab_yue"> 0 </a>元<a href=""
 						class="top_tab_loginimg">[ 提现 ]</a></li>
 					<li><a href="" class="top_tab_sjvip">立即升级为VIP！</a></li>
-					<li>${sessionScope.currentUser.us_login }<a href="javascript:logout();" class="top_tab_loginimg">[退出]</a></li>
+					<li>${sessionScope.currentUser.login }<a href="javascript:logout();" class="top_tab_loginimg">[退出]</a></li>
 					<li style="border-right: 0px;">
 						<a>
 							<c:choose>
-								<c:when test="${sessionScope.currentUser.us_isvip == 1 }">
+								<c:when test="${sessionScope.currentUser.isvip == 1 }">
 									<img src="images/user_vip.png"/>	
 								</c:when>
 								<c:otherwise>
@@ -79,7 +79,7 @@ body {
 				<li><a href="inde.jsp" target="_top">首页</a></li>
 				<li><a href="recommend.jsp" target="_top">推荐任务</a></li>
 				<li><a href="task_hall.jsp" target="_top">任务大厅</a></li>
-				<li><a href="user/center.html" target="_top">用户中心</a></li>
+				<li><a href="center" target="_top">用户中心</a></li>
 				<li><a href="" target="_top">推广奖励</a></li>
 			</ul>
 		</div>
