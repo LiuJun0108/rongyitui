@@ -9,12 +9,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.rongyitui.po.OfficialTask;
+import com.rongyitui.po.UserTask;
 import com.rongyitui.service.IOfficialTaskService;
+import com.rongyitui.service.IUserTaskService;
 
 @Controller
 public class IndexController {
 	@Resource
 	private IOfficialTaskService officialTaskService;
+
+	@Resource
+	private IUserTaskService userIUserTaskService;
 
 	@RequestMapping("/hotTasksTop6")
 	@ResponseBody
@@ -23,8 +28,11 @@ public class IndexController {
 		return list;
 	}
 
-	@RequestMapping("/task_hall")
-	public String taskHall() {
-		return "task_hall";
+	@RequestMapping("/userTasksTop8")
+	@ResponseBody
+	public List<UserTask> userTasksTop8() {
+		List<UserTask> list = this.userIUserTaskService.userTasksTop(8);
+		return list;
 	}
+
 }

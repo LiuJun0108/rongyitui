@@ -8,4 +8,6 @@ public interface IWebUserService {
 
 	void addWebUser(WebUser webUser);
 
+	WebUser getWebUserById(int id);
+
 }

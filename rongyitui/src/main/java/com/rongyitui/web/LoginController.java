@@ -17,12 +17,12 @@ public class LoginController {
 
 	@Resource
 	private IWebUserService webUserService;
-
+	
 	@RequestMapping("/login")
 	@ResponseBody
 	public JsonMsg login(WebUser webUser, HttpSession session) {
-		String login = webUser.getUs_login();
-		String password = webUser.getUs_password();
+		String login = webUser.getLogin();
+		String password = webUser.getPassword();
 
 		if (Validator.isNullOrEmpty(login)) {
 			return new JsonMsg(false, "用户名为空", "1");
@@ -35,7 +35,7 @@ public class LoginController {
 		if (user == null) {
 			return new JsonMsg(false, "用户名不存在", "1");
 		}
-		if (!password.equals(user.getUs_password())) {
+		if (!password.equals(user.getPassword())) {
 			return new JsonMsg(false, "密码输入有误，请重新输入", "2");
 		}
 

@@ -33,8 +33,8 @@ public class RegisteController {
 	@RequestMapping("/reg")
 	public ModelAndView reg(WebUser webUser, String cpwd, String yzm, HttpSession session) {
 		// 重复密码
-		if (!cpwd.equals(webUser.getUs_password())) {
-			logger.error("重复密码输入错误。密码：" + webUser.getUs_password() + ", 重复密码：" + cpwd);
+		if (!cpwd.equals(webUser.getPassword())) {
+			logger.error("重复密码输入错误。密码：" + webUser.getPassword() + ", 重复密码：" + cpwd);
 			throw new SystemException();
 		}
 
@@ -48,9 +48,9 @@ public class RegisteController {
 			logger.error("验证码生成有误");
 		}
 		
-		WebUser user = this.webUserService.getWebUserByLogin(webUser.getUs_login());
+		WebUser user = this.webUserService.getWebUserByLogin(webUser.getLogin());
 		if(user != null) {
-			logger.info("用户名重复：" + webUser.getUs_login());
+			logger.info("用户名重复：" + webUser.getLogin());
 			return new ModelAndView("reg", "resultMsg", new JsonMsg(false, "用户名重复", 2));
 		}
 

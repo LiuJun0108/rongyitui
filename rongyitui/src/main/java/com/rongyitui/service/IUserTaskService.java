@@ -1,5 +1,7 @@
 package com.rongyitui.service;
 
+import java.util.List;
+
 import com.rongyitui.model.Page;
 import com.rongyitui.po.UserTask;
 import com.rongyitui.web.dto.TaskHallQuery;
@@ -24,5 +26,7 @@ public interface IUserTaskService {
 	UserTask getUserTaskById(int ut_id);
 
 	Page<UserTask> listUserTask(TaskHallQuery query, int pageNo, int pageSize);
+
+	List<UserTask> userTasksTop(int count);
 
 }

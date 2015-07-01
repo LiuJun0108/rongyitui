@@ -15,7 +15,7 @@ import com.rongyitui.po.WebUser;
 import com.rongyitui.service.IUserTaskService;
 
 @Controller
-public class UserTaskController extends JspPackageController {
+public class UserTaskController implements JspPackage {
 	@Resource
 	private IUserTaskService userTaskService;
 

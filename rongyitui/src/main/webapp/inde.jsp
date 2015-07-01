@@ -27,7 +27,7 @@
 		
 		// 热门任务前6
 		hotTask6();
-
+		userTasksTop8();
 	});
 	
 	//打开登陆窗口
@@ -107,6 +107,39 @@
 		},'json');
 	}
 	
+	function userTasksTop8() {
+		$.post('userTasksTop8.json', function(data) {
+			if(data) {
+				console.info(data);
+				$('.body_l_d2_t').remove(); // 删除之前的数据
+				
+				$.each(data, function(index, task) {
+					var taskimg = 'images/tou_img1.jpg';
+					if(task.taskimg != null) {
+						taskimg = task.taskimg;
+					}
+					var remainderMoney = ((task.number - task.completenumber) * task.singmoney).toFixed(2);
+					var html = '<tr class="body_l_d2_t">'+
+									'<td style="text-align: left;">'+
+										'<dd class="body_l_d2_t_dd">'+
+											'<img src="'+taskimg+'">'+
+										'</dd>'+
+										'<dd class="body_l_d2_t_dd1">'+
+											'<a title="'+task.title+'" href="#">'+task.title+'</a>'+
+										'</dd>'+
+									'</td>'+
+									'<td style="color: #FF5A00">￥'+task.allmoney+'</td>'+
+									'<td>'+task.number+'</td>'+
+									'<td style="color: #FF5A00">￥'+remainderMoney+'</td>'+
+									'<td style="">'+task.endtime+'</td>'+
+									'<td style="color: #008001">进行中</td>'+
+								'</tr>';
+					$('.body_l_d2').after(html);
+				
+				})
+			}
+		})
+	}
 	
 </script>
 <style>
@@ -287,7 +320,7 @@ a:hover {
 						</table>
 					</div>
 					<p class="body_d_l_t1_1_gd_a">
-						<a href="task_hall.html">更多任务 >></a>
+						<a href="task_hall.jsp">更多任务 >></a>
 					</p>
 				</div>
 			</div>

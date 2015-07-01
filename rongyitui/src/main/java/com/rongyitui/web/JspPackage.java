@@ -1,6 +1,6 @@
 package com.rongyitui.web;
 
-public class JspPackageController {
+public interface JspPackage {
 	/**
 	 * jsp package 前缀
 	 */

@@ -79,7 +79,7 @@ body {
 				<li><a href="inde.jsp" target="_top">首页</a></li>
 				<li><a href="recommend.jsp" target="_top">推荐任务</a></li>
 				<li><a href="task_hall.jsp" target="_top">任务大厅</a></li>
-				<li><a href="" target="_top">用户中心</a></li>
+				<li><a href="user/center.html" target="_top">用户中心</a></li>
 				<li><a href="" target="_top">推广奖励</a></li>
 			</ul>
 		</div>

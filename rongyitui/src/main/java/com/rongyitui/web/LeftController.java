@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class LeftController extends JspPackageController {
+public class LeftController implements JspPackage {
 
 	@RequestMapping(value = "/left", method = { RequestMethod.GET })
 	public String left() {

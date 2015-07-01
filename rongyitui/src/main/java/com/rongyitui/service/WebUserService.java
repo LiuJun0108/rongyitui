@@ -24,7 +24,8 @@ public class WebUserService implements IWebUserService {
 		String hql = "from WebUser as user where user.us_login = ?";
 		log.info("hql = " + hql);
 
-		List<WebUser> list = this.webUserDao.listByHQL(hql, new String[] { login });
+		List<WebUser> list = this.webUserDao.listByHQL(hql,
+				new String[] { login });
 		if (list != null && !list.isEmpty()) {
 			return list.get(0);
 		}
@@ -39,4 +40,10 @@ public class WebUserService implements IWebUserService {
 
 		this.webUserDao.save(webUser);
 	}
+
+	@Override
+	public WebUser getWebUserById(int id) {
+		return this.webUserDao.getById(id);
+	}
+
 }

@@ -13,6 +13,14 @@
 			$(".top_tian").css("display", "none");
 		});
 		
+		$('.taskhall_ul li').each(function(index, item) {
+			$(item).find('span').click(function() {
+				$(item).find('span[class]').removeClass('taskhall_ul_qb');
+				$(this).addClass('taskhall_ul_qb');
+				pageUserTask();
+			});
+		});
+		
 		pageUserTask();
 	});
 	
@@ -41,7 +49,6 @@
 			pageSize : pageSize
 		},function(data) {
 			if(data) {
-				console.info(data);
 				showTask(data.list);
 				var pageCount = data.pageCount;
 				pagination(pageNo,pageCount);
@@ -56,19 +63,20 @@
 			if(task.taskimg != null) {
 				taskimg = task.taskimg;
 			}
+			var remainderMoney = ((task.number - task.completenumber) * task.singmoney).toFixed(2);
 			var html = '<tr class="body_l_d2_t">'+
 							'<td style="text-align: left;">'+
 								'<dd class="body_l_d2_t_dd">'+
 									'<img src="'+taskimg+'">'+
 								'</dd>'+
 								'<dd class="body_l_d2_t_dd1">'+
-									'<a title="'+task.title+'"</a>'+
+									'<a title="'+task.title+'">'+task.title+'</a>'+
 								'</dd>'+
 							'</td>'+
-							'<td style="color: #FF5A00">￥200</td>'+
-							'<td>20</td>'+
-							'<td style="color: #FF5A00">￥100</td>'+
-							'<td style="">2014-12-12</td>'+
+							'<td style="color: #FF5A00">￥'+task.allmoney+'</td>'+
+							'<td>'+task.number+'</td>'+
+							'<td style="color: #FF5A00">￥'+remainderMoney+'</td>'+
+							'<td style="">'+task.endtime+'</td>'+
 							'<td style="color: #008001">进行中</td>'+
 						'</tr>';
 			$('.body_l_d2').after(html);
@@ -122,6 +130,8 @@
 		
 		pageUserTask();
 	}
+	
+	
 </script>
 <style>
 body {
